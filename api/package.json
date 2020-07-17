@@ -1,0 +1,24 @@
+{
+  "name": "oncar-api",
+  "version": "1.0.0",
+  "description": "OnCar - Teste técnico Desenvolvedor Full Stack Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "mysql": "docker run --name docker-oncar -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -d mysql:5.7",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Brum Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "express": "^4.17.1",
+    "knex": "^0.21.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
