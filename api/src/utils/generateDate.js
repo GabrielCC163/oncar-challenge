@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
-require('dotenv').config();
+const { timezone } = require('../../config');
 
 module.exports = function generateDate() {
-	return moment().tz(process.env.TIMEZONE).format('YYYY-MM-DD HH:mm:ss');
+	return moment().tz(timezone).format('YYYY-MM-DD HH:mm:ss');
 };

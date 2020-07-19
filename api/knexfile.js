@@ -1,3 +1,5 @@
+const { timezone } = require('./config');
+
 module.exports = {
 	development: {
 		client: 'mysql',
@@ -8,7 +10,7 @@ module.exports = {
 			password: 'password',
 			database: 'oncar',
 			charset: 'utf8',
-			timezone: 'America/Sao_Paulo'
+			timezone
 		},
 		migrations: {
 			directory: './src/database/migrations'

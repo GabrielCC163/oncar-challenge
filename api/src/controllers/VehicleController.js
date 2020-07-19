@@ -4,12 +4,17 @@ const generateDate = require('../utils/generateDate');
 
 module.exports = {
 	async index(req, res) {
-		const { page = 1 } = req.query;
+		const { page = 1, nome } = req.query;
 
+		let query = connection('veiculos').limit(6).offset((page - 1) * 6).select('*');
+		if (nome) {
+			query.where('veiculo', new RegExp(nome));
+		}
 		try {
 			const [ count ] = await connection('veiculos').count();
 
-			const vehicles = await connection('veiculos').limit(6).offset((page - 1) * 6).select('*');
+			const vehicles = await query;
+			console.log(vehicles);
 			res.header('X-Total-Count', count['count(*)']);
 			return res.json(vehicles);
 		} catch (err) {

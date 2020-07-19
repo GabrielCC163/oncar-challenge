@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container .header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+  border-bottom: 2px solid lightgray;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.section_vehicles {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: lightslategray;
+  margin: 20px 0;
+  padding: 10px 5px;
+  border-radius: 2px;
+}
+
+.section_vehicles_list,
+.section_vehicles_detail {
+  background-color: white;
+  padding: 10px 5px;
+  flex: 1;
+  margin: 5px;
+  border-radius: 3px;
+}
