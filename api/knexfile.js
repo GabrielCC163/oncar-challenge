@@ -3,10 +3,12 @@ module.exports = {
 		client: 'mysql',
 		version: '5.7',
 		connection: {
-			host: 'localhost',
+			host: '127.0.0.1',
 			user: 'root',
 			password: 'password',
-			database: 'oncar'
+			database: 'oncar',
+			charset: 'utf8',
+			timezone: 'America/Sao_Paulo'
 		},
 		migrations: {
 			directory: './src/database/migrations'

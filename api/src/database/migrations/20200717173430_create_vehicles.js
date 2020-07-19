@@ -1,3 +1,5 @@
+const generateDate = require('../../utils/generateDate');
+
 exports.up = function(knex) {
 	return knex.schema.createTable('veiculos', function(table) {
 		table.string('id').primary();
@@ -6,7 +8,7 @@ exports.up = function(knex) {
 		table.integer('ano').unsigned().notNullable();
 		table.text('descricao');
 		table.boolean('vendido').defaultTo(false);
-		table.datetime('created', { precision: 6 }).defaultTo(knex.fn.now(6));
+		table.datetime('created').defaultTo(generateDate());
 		table.datetime('updated');
 	});
 };

@@ -1,3 +1,6 @@
+Run
+sudo mkdir -p /storage/docker/mysql-data
+
 Start DB:
  yarn mysql
 
