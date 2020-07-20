@@ -20,8 +20,13 @@ const remove = (id) => {
 	return http.delete(`/veiculos/${id}`);
 };
 
-const findByName = (name) => {
-	return http.get(`/veiculos?veiculo=${name}`);
+const findByName = (veiculo, page) => {
+	return http.get('/veiculos', {
+		params: {
+			veiculo,
+			page
+		}
+	});
 };
 
 export default {

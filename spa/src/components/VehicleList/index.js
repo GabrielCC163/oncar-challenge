@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import VehicleService from '../../services/VehicleService';
 
 import './styles.css';
@@ -9,8 +8,12 @@ export default function Vehicle() {
 	const [ currentVehicle, setCurrentVehicle ] = useState(null);
 	const [ currentIndex, setCurrentIndex ] = useState(-1);
 	const [ searchName, setSearchName ] = useState('');
+	const [ page, setPage ] = useState(1);
+	const [ perPage ] = useState(6);
+	const [ loading, setLoading ] = useState(false);
 
 	useEffect(() => {
+		setLoading(true);
 		retrieveVehicles();
 	}, []);
 
@@ -23,6 +26,7 @@ export default function Vehicle() {
 		VehicleService.getAll()
 			.then((res) => {
 				setVehicles(res.data);
+				setLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -38,11 +42,25 @@ export default function Vehicle() {
 		VehicleService.findByName(searchName)
 			.then((res) => {
 				setVehicles(res.data);
+				setLoading(false);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	};
+
+	const handlePageChange = (pageNumber) => {
+		setPage(pageNumber);
+	};
+
+	const indexOfLast = page * perPage;
+	const indexOfFirst = indexOfLast - perPage;
+	const currentVehicles = vehicles.slice(indexOfFirst, indexOfLast);
+	const lastPage = Math.ceil(vehicles.length / perPage);
+
+	if (loading) {
+		return <h2>Loading...</h2>;
+	}
 
 	return (
 		<div className="list row">
@@ -66,22 +84,53 @@ export default function Vehicle() {
 				<h4>Lista de veículos</h4>
 
 				<ul className="list-group">
-					{vehicles &&
-						vehicles.map((vehicle, index) => (
+					{currentVehicles &&
+						currentVehicles.map((vehicle, index) => (
 							<li
 								className={`list-group-item ${index === currentIndex ? 'active' : ''}`}
 								onClick={() => setActiveVehicle(vehicle, index)}
 								key={index}
 							>
-								{vehicle.veiculo}
+								<span className="vehicle_brand">{vehicle.marca}</span>
+								<span className="vehicle_name">{vehicle.veiculo}</span>
+								<span className="vehicle_year">{vehicle.ano}</span>
 							</li>
 						))}
 				</ul>
+				<div className="pagination">
+					<button disabled={page === 1} onClick={() => setPage(1)}>
+						&#8810;
+					</button>
+					<button disabled={page === 1} onClick={() => setPage(page - 1)}>
+						&#60;
+					</button>
+					<button disabled={page === lastPage} onClick={() => setPage(page + 1)}>
+						&#62;
+					</button>
+					<button disabled={page === lastPage} onClick={() => setPage(lastPage)}>
+						&#8811;
+					</button>
+				</div>
 			</div>
 			<div className="col-md-6">
 				{currentVehicle ? (
-					<div>
+					<div className="vehicle_details">
 						<h4>Detalhes do veículo</h4>
+						<span className="vehicle_details_name">{currentVehicle.veiculo}</span>
+						<div className="vehicle_details_group">
+							<div className="vehicle_details_brand">
+								<label>MARCA</label>
+								<span>{currentVehicle.marca}</span>
+							</div>
+							<div className="vehicle_details_year">
+								<label>ANO</label>
+								<span>{currentVehicle.ano}</span>
+							</div>
+						</div>
+						<div className="vehicle_details_detalhes">{currentVehicle.descricao}</div>
+						<div className="edition">
+							<button>EDITAR</button>
+						</div>
 					</div>
 				) : (
 					<div>

@@ -8,7 +8,7 @@ exports.up = function(knex) {
 		table.integer('ano').unsigned().notNullable();
 		table.text('descricao');
 		table.boolean('vendido').defaultTo(false);
-		table.datetime('created').defaultTo(generateDate());
+		table.datetime('created');
 		table.datetime('updated');
 	});
 };

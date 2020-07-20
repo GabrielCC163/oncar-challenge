@@ -4,17 +4,18 @@ const generateDate = require('../utils/generateDate');
 
 module.exports = {
 	async index(req, res) {
-		const { page = 1, nome } = req.query;
+		const { veiculo } = req.query;
 
-		let query = connection('veiculos').limit(6).offset((page - 1) * 6).select('*');
-		if (nome) {
-			query.where('veiculo', new RegExp(nome));
+		//let query = connection('veiculos').limit(6).offset((page - 1) * 6).select('*');
+		let query = connection('veiculos').select('*');
+		if (veiculo) {
+			query.where('veiculo', 'like', `%${veiculo}%`);
 		}
+
 		try {
 			const [ count ] = await connection('veiculos').count();
 
-			const vehicles = await query;
-			console.log(vehicles);
+			const vehicles = await query.orderBy('created', 'desc');
 			res.header('X-Total-Count', count['count(*)']);
 			return res.json(vehicles);
 		} catch (err) {
@@ -48,7 +49,8 @@ module.exports = {
 				marca,
 				ano,
 				descricao,
-				vendido
+				vendido,
+				created: generateDate()
 			});
 
 			return res.json({ id });
