@@ -12,9 +12,8 @@ Access mysql bash
  mysql -p
 then type password
 
+show databases;
 run create database oncar;
-type exit; to leave mysql bash
-type exit to leave container bash
 
 Run migrations:
  npx knex migrate:latest

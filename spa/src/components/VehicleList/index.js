@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import VehicleService from '../../services/VehicleService';
+import { ModalDetail } from '../ModalDetail';
 
 import './styles.css';
 
@@ -11,6 +12,10 @@ export default function Vehicle() {
 	const [ page, setPage ] = useState(1);
 	const [ perPage ] = useState(6);
 	const [ loading, setLoading ] = useState(false);
+	const [ modalIsOpen, setIsOpen ] = useState(false);
+
+	const openModal = () => setIsOpen(true);
+	const closeModal = () => setIsOpen(false);
 
 	useEffect(() => {
 		setLoading(true);
@@ -47,10 +52,6 @@ export default function Vehicle() {
 			.catch((err) => {
 				console.log(err);
 			});
-	};
-
-	const handlePageChange = (pageNumber) => {
-		setPage(pageNumber);
 	};
 
 	const indexOfLast = page * perPage;
@@ -129,8 +130,10 @@ export default function Vehicle() {
 						</div>
 						<div className="vehicle_details_detalhes">{currentVehicle.descricao}</div>
 						<div className="edition">
-							<button>EDITAR</button>
+							<button onClick={openModal}>EDITAR</button>
 						</div>
+
+						<ModalDetail isOpen={modalIsOpen} onRequestClose={closeModal} />
 					</div>
 				) : (
 					<div>
