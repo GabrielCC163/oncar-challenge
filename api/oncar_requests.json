@@ -1,0 +1,178 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2020-08-05T01:08:43.789Z",
+    "__export_source": "insomnia.desktop.app:v2020.3.3",
+    "resources": [{
+        "_id": "req_ee427016a8c4458f8e46ce5e935d02b4",
+        "authentication": {},
+        "body": {},
+        "created": 1595011376472,
+        "description": "",
+        "headers": [],
+        "isPrivate": false,
+        "metaSortKey": -1595011623126,
+        "method": "GET",
+        "modified": 1596589657970,
+        "name": "Veículos",
+        "parameters": [{
+            "description": "",
+            "id": "pair_92c9969e0acc4bc59debde31af3e7bc1",
+            "name": "veiculo",
+            "value": ""
+        }],
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingFollowRedirects": "global",
+        "settingRebuildPath": true,
+        "settingSendCookies": true,
+        "settingStoreCookies": true,
+        "url": "{{ base_url }}/veiculos",
+        "_type": "request"
+    }, {
+        "_id": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "created": 1595011350611,
+        "description": "",
+        "modified": 1595011350611,
+        "name": "OnCar API",
+        "parentId": null,
+        "scope": null,
+        "_type": "workspace"
+    }, {
+        "_id": "req_6e00acee9ed7411593e391f86453cb39",
+        "authentication": {},
+        "body": {},
+        "created": 1595011416172,
+        "description": "",
+        "headers": [],
+        "isPrivate": false,
+        "metaSortKey": -1595011623101,
+        "method": "GET",
+        "modified": 1595118938159,
+        "name": "Veículo específico",
+        "parameters": [],
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingFollowRedirects": "global",
+        "settingRebuildPath": true,
+        "settingSendCookies": true,
+        "settingStoreCookies": true,
+        "url": "{{ base_url }}/veiculos/feb0c017",
+        "_type": "request"
+    }, {
+        "_id": "req_80aaa4ee2dcd454aa715ef561aa6cbe8",
+        "authentication": {},
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"veiculo\": \"veiculo 7\",\n\t\"marca\": \"FORD\",\n\t\"ano\": 2020,\n\t\"descricao\": \"completo\",\n\t\"vendido\": false\n}"
+        },
+        "created": 1595011465075,
+        "description": "",
+        "headers": [{
+            "id": "pair_d537d91b26a94ba29e84331ac914af6e",
+            "name": "Content-Type",
+            "value": "application/json"
+        }],
+        "isPrivate": false,
+        "metaSortKey": -1595011623088.5,
+        "method": "POST",
+        "modified": 1595282394595,
+        "name": "Cadastrar veículo",
+        "parameters": [],
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingFollowRedirects": "global",
+        "settingRebuildPath": true,
+        "settingSendCookies": true,
+        "settingStoreCookies": true,
+        "url": "{{ base_url }}/veiculos",
+        "_type": "request"
+    }, {
+        "_id": "req_789bd32e4e444bbfb744659c324e4422",
+        "authentication": {},
+        "body": {},
+        "created": 1595011623076,
+        "description": "",
+        "headers": [],
+        "isPrivate": false,
+        "metaSortKey": -1595011600988.5,
+        "method": "DELETE",
+        "modified": 1596244588026,
+        "name": "Deletar veículo",
+        "parameters": [],
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingFollowRedirects": "global",
+        "settingRebuildPath": true,
+        "settingSendCookies": true,
+        "settingStoreCookies": true,
+        "url": "{{ base_url }}/veiculos/c70ffeb1",
+        "_type": "request"
+    }, {
+        "_id": "req_2376cc8d978147f5b9ce27dc52816075",
+        "authentication": {},
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"descricao\": \"completo e revisado 2\"\n}"
+        },
+        "created": 1595011578901,
+        "description": "",
+        "headers": [{
+            "id": "pair_c11283de977a4da8a0ea7b2ac1b84638",
+            "name": "Content-Type",
+            "value": "application/json"
+        }],
+        "isPrivate": false,
+        "metaSortKey": -1595011578901,
+        "method": "PUT",
+        "modified": 1595118890706,
+        "name": "Editar veículo",
+        "parameters": [],
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingFollowRedirects": "global",
+        "settingRebuildPath": true,
+        "settingSendCookies": true,
+        "settingStoreCookies": true,
+        "url": "{{ base_url }}/veiculos/feb0c017",
+        "_type": "request"
+    }, {
+        "_id": "env_33b794c19ef7fca39f128002ca62ede9cf6060dc",
+        "color": null,
+        "created": 1595011350844,
+        "data": {
+            "base_url": "http://localhost:3333"
+        },
+        "dataPropertyOrder": {
+            "&": ["base_url"]
+        },
+        "isPrivate": false,
+        "metaSortKey": 1595011350844,
+        "modified": 1595011363278,
+        "name": "Base Environment",
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "_type": "environment"
+    }, {
+        "_id": "jar_33b794c19ef7fca39f128002ca62ede9cf6060dc",
+        "cookies": [],
+        "created": 1595011350851,
+        "modified": 1595011350851,
+        "name": "Default Jar",
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "_type": "cookie_jar"
+    }, {
+        "_id": "spc_ffb58e469677442298e9e7d54d3c85b2",
+        "contentType": "yaml",
+        "contents": "",
+        "created": 1595011350634,
+        "fileName": "OnCar API",
+        "modified": 1595011350634,
+        "parentId": "wrk_4c1df7cbf1e8444cb14a8840c2cc24f7",
+        "_type": "api_spec"
+    }]
+}
