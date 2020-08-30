@@ -8,7 +8,7 @@ Node.js, Yarn, Live Server e Docker
 * #### Crie uma pasta para armazenamento do banco de dados:
   
     ```
-    $ sudo mkdir -p /storage/docker/mysql-data
+    $ sudo mkdir -p /storage/docker/oncar/mysql-data
     ```
 
 * #### Clone o projeto:
