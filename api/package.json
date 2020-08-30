@@ -4,7 +4,7 @@
   "description": "OnCar - Teste técnico Desenvolvedor Full Stack Node.js",
   "main": "src/server.js",
   "scripts": {
-    "mysql": "docker run --name docker-oncar -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -v /storage/docker/mysql-data:/var/lib/mysql -d mysql:5.7",
+    "mysql": "docker run --name docker-oncar -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 -v /storage/docker/oncar/mysql-data:/var/lib/mysql -d mysql:5.7",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
